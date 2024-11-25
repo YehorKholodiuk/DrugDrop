@@ -1,5 +1,15 @@
 import React, {useState} from 'react';
-import {Button, Checkbox, FormControlLabel, TextField} from "@mui/material";
+import {
+    Button,
+    Checkbox,
+    FormControlLabel,
+    Table,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow,
+    TextField
+} from "@mui/material";
 
 const DragDropTable = () => {
     const initialColumns = ['Name', 'Data']
@@ -12,11 +22,12 @@ const DragDropTable = () => {
 
     const [columns, setColumns] = useState(initialColumns)
     const [newColumn, setBewColumn] = useState('')
-    const [showColumnInputs, setShowColumnInputs] = useState(true)
+    const [showColumnInputs, setShowColumnInputs] = useState(false)
     const [tableData, setTableData] = useState(initialTableData)
     const [newRow, setNewRow] = useState({})
-    const [showRowInputs, setShowRowInputs] = useState(true)
+    const [showRowInputs, setShowRowInputs] = useState(false)
     return (
+        <>
         <div>
             <Button> Add Column</Button>
 
@@ -71,6 +82,19 @@ const DragDropTable = () => {
             )}
 
         </div>
+
+            <TableContainer>
+                <Table>
+                    <TableHead>
+          <TableRow>
+              {columns.map((col, idx) => (
+                  <TableCell key = {idx}>{col}</TableCell>
+              ))}
+          </TableRow>
+                    </TableHead>
+                </Table>
+            </TableContainer>
+            </>
     );
 };
 
