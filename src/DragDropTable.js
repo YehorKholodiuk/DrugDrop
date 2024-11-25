@@ -3,13 +3,14 @@ import {
     Button,
     Checkbox,
     FormControlLabel,
-    Table,
+    Table, TableBody,
     TableCell,
     TableContainer,
     TableHead,
     TableRow,
     TextField
 } from "@mui/material";
+import DragDropRow from "./DragDropRow";
 
 const DragDropTable = () => {
     const initialColumns = ['Name', 'Data']
@@ -92,6 +93,13 @@ const DragDropTable = () => {
               ))}
           </TableRow>
                     </TableHead>
+                    <TableBody>
+                        {
+                            tableData.map((row, index) => (
+                                <DragDropRow/>
+                            ))
+                        }
+                    </TableBody>
                 </Table>
             </TableContainer>
             </>
